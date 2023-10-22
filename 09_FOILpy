@@ -1,0 +1,28 @@
+from sympy import symbols, Eq, solve
+
+def calc_multiplication_table(base, length):
+    """
+    Funcion que calcula las tablas de multiplicar de un número.
+    :param base: número base
+    :param length: longitud de la tabla de multiplicar
+    :return: tabla de multiplicar
+    """
+    result = []
+    for i in range(1, length + 1):
+        result.append(base * i)
+    return result
+
+# Simbolos
+x, y, z = symbols('x y z')
+
+# Reglas de inferencia
+foil_rule_1 = Eq(x * y, z)
+foil_rule_2 = Eq(y * x, z)
+foil_rule_3 = Eq(x * z, y)
+foil_rule_4 = Eq(z * x, y)
+
+# Ejemplo: calcular las tablas de multiplicar de 2, 3 y 4
+for base in [2, 3, 4]:
+    length = 10
+    table = calc_multiplication_table(base, length)
+    print(f"Tabla de multiplicar de {base}: {table}")
